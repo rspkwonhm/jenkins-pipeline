@@ -1,7 +1,7 @@
 version: '2.4'
 services:
   mysql:
-    container_name: mysql-all
+    container_name: mysql-test
     restart: always
     image: mysql:latest
     volumes:
@@ -14,21 +14,8 @@ services:
     networks:
       - jp-network
 
-  fastapi:
-    container_name: fastapi-all
-    restart: always
-    image: fastapi:latest
-    volumes:
-      - ${VOLUME_DIR}/appData/thumb:/home/minerva/appData/thumb
-    cpu_count: 1
-    cpu_shares: 2048
-    ports:
-      - "8000:8000"
-    networks:
-      - jp-network
-
   app:
-    container_name: minerva-all
+    container_name: app-test
     restart: always
     build:
       context: .
