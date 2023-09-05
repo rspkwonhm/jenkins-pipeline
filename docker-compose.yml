@@ -22,7 +22,6 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - mysql
-      - fastapi
     networks:
       - jp-network
 
